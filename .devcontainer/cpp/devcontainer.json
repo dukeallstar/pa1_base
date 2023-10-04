@@ -1,17 +1,4 @@
 {
   "name": "GTest",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "klee/gtest:1.11.0_ubuntu_jammy-20230126",
-
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
-
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-
-  // Configure tool-specific properties.
-  // "customizations": {},
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+  "image": "klee/gtest:1.11.0_ubuntu_jammy-20230126"
 }
