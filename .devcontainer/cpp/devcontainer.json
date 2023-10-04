@@ -1,4 +1,0 @@
-{
-  "name": "GTest",
-  "image": "klee/gtest:1.11.0_ubuntu_jammy-20230126"
-}
