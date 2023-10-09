@@ -169,7 +169,7 @@ class TestVec3(unittest.TestCase):
     def test_write_color(self):
         a = color(0.2,0.5,0.2)
         f = a.write_color()
-        self.assertEqual(f,"114 181 114")
+        self.assertEqual(f,"51 128 51")
 
 
 

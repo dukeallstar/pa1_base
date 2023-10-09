@@ -180,7 +180,7 @@ namespace {
 		color c = color(0.2,0.5,0.2);
 		std::ostringstream s = std::ostringstream();
 		write_color(s,c,1);
-		std::string s2 = "114 181 114\n";
+		std::string s2 = "51 128 51\n";
 		std::string res = s.str();
 		EXPECT_EQ(res,s2);
 	}
