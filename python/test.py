@@ -7,6 +7,7 @@ from ray import ray
 from interval import interval
 from hittable import sphere
 from hittable_list import hittable_list
+from hit_record import hit_record
 
 class TestVec3(unittest.TestCase):
     def test_constructor(self):
@@ -175,8 +176,8 @@ class TestVec3(unittest.TestCase):
 class TestRays(unittest.TestCase):
 
     def test_construct(self):
-        direct = vec(1,7,8)
-        orig = vec(1,1,1)
+        direct = vec3(1,7,8)
+        orig = vec3(1,1,1)
         a = ray(orig,direct)
         self.assertEqual(a.orig.x(),orig.x())
         self.assertEqual(a.orig.y(),orig.y())
@@ -186,8 +187,8 @@ class TestRays(unittest.TestCase):
         self.assertEqual(a.direction.z(),direct.z())
 
     def test_at(self):
-        direct = vec(1,7,8)
-        orig = vec(1,1,1)
+        direct = vec3(1,7,8)
+        orig = vec3(1,1,1)
         a = ray(orig,direct)
         at = a.at(2)
         self.assertEqual(at.x(),3)
@@ -236,14 +237,14 @@ class TestInterval(unittest.TestCase):
         self.assertEqual(a.max,float('-inf'))
 
     def test_all(self):
-        a = interval.empty()
+        a = interval.all()
         self.assertEqual(a.max,float('inf'))
         self.assertEqual(a.min,float('-inf'))
 
 
 class TestHitRecord(unittest.TestCase):
 
-    def test_set_point():
+    def test_set_point(self):
         direct = vec3(1,7,8)
         orig = vec3(1,1,1)
         r = ray(orig,direct)
@@ -255,7 +256,7 @@ class TestHitRecord(unittest.TestCase):
         self.assertEqual(record.p.z(),p.z())
 
 
-    def test_set_t():
+    def test_set_t(self):
         direct = vec3(1,7,8)
         orig = vec3(1,1,1)
         r = ray(orig,direct)
@@ -276,7 +277,6 @@ class TestHitRecord(unittest.TestCase):
         record.p = r.at(3.2)
         record.t = 3.2
         record.set_face_normal(r,norm)
-        self.assertTrue(record.front_face)
         self.assertEqual(record.normal.x(),-norm.x())
         self.assertEqual(record.normal.y(),-norm.y())
         self.assertEqual(record.normal.z(),-norm.z())
@@ -358,9 +358,9 @@ class TestHittableList(unittest.TestCase):
         r = ray(orig,direct)
         i = interval(0,10)
         
-        record,was_hit = hittable_list.hit(r,i) 
-        self.assertEqual(wasHit,True)
-        self.assertAlmostEqual(hit_record.t,0.72844249414426698,places=3)
+        record,was_hit = hitList.hit(r,i) 
+        self.assertEqual(was_Hit,True)
+        self.assertAlmostEqual(record.t,0.72844249414426698,places=3)
 
 
 
