@@ -131,7 +131,7 @@ class TestVec3(unittest.TestCase):
     def test_rand_on_hemisphere(self):
         normal = vec3(0,0,1)
         a = vec3.rand_on_hemisphere(normal)
-        b = vec3.rand_unit_vector(normal)
+        b = vec3.rand_on_hemisphere(normal)
         resa = a.dot(normal)
         resb = b.dot(normal)
         self.assertGreater(resa,0)
